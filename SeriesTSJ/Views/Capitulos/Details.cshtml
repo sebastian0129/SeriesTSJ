@@ -1,0 +1,35 @@
+﻿@model WebApplication1.Models.Capitulo
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.count = 4;
+    ViewBag.bread = new List<Tuple<string, string>>();
+    ViewBag.bread.Add(new Tuple<string, string>("Series", "Series"));
+    ViewBag.bread.Add(new Tuple<string, string>(Model.temporada.serie.nombre, "Series/Details/" + Model.temporada.serieID));
+    ViewBag.bread.Add(new Tuple<string, string>("Temp " + Model.temporada.numero, "Temporadas/Details/" + Model.temporadaID));
+    ViewBag.bread.Add(new Tuple<string, string>("Cap " + Model.numero, "Capitulos/Details/" + Model.capituloID));
+}
+
+<h2>@Model.temporada.serie.nombre</h2>
+<h4>Temporada @Model.temporada.numero</h4>
+
+<div class="row">    
+    <h4>@Model.numero. @Model.nombre</h4>
+    <hr />
+     <div class="col-xs-10 col-md-8 col-lg-6 col-lg-offset-2">
+         <iframe allowfullscreen="true" frameborder="0" height="360" 
+                 mozallowfullscreen="true" 
+                 scrolling="no"
+                 src="https://@Model.video"
+                 webkitallowfullscreen="true" 
+                 width="640"></iframe>
+     </div>
+    
+    <div class="col-xs-2 col-md-4 col-lg-2 text-left">
+        <a href="@Url.Action("Details", "Temporadas", new { id = Model.temporadaID})"><i class="fa fa-2x fa-close"></i></a>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.capituloID }) |
+    <a href="@Url.Action("Details", "Temporadas", new { id = Model.temporadaID})">Back to List</a>
+</p>

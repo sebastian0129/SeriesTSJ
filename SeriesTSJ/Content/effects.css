@@ -1,0 +1,147 @@
+﻿
+.spotlight_container {
+    position: relative;
+    overflow: hidden;
+}
+
+    .spotlight_container .spotlight_title {
+        position: absolute;
+        top: -100px;
+        color: #fff;
+        background: linear-gradient(to top,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 40%,rgba(0,0,0,0.9) 100%);
+        width: 100%;
+        padding: 5px 10px;
+        overflow: hidden;
+        text-align: center;
+        min-height: 70px;
+        font-size: 20px;
+        -webkit-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;
+        -o-transition: all 200ms ease-in-out;
+        transition: all 200ms ease-in-out;
+        text-shadow: 0 4px 20px purple;
+    }
+
+        .spotlight_container .spotlight_title .info-series {            
+            font-size: 12px;
+        }
+
+        .spotlight_container .spotlight_title .title-season {
+            color: #ff8e00;
+        }
+
+        .spotlight_container .spotlight_title .separe {
+            color: #616161;
+            font-weight: 900;
+        }
+
+    .spotlight_container .spotlight_image {
+        background-size: auto 108%;
+        background-position: center top;
+           }
+
+    .spotlight_container .spotlight_info {
+        position: absolute;
+        bottom: -100px;
+        width: 100%;
+        padding: 5px 10px;
+        background: linear-gradient(rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%);
+        -webkit-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;        
+        -o-transition: all 200ms ease-in-out;
+        transition: all 200ms ease-in-out;
+    }
+
+    .spotlight_container:hover .spotlight_info {
+        bottom: 0px;
+    }
+
+    .spotlight_container:hover .spotlight_title {
+        top: 0px;
+    }
+
+    .spotlight_container .overviewPlay {
+        top: 45%;
+        right: 20%;
+        font-size: 7.2vw;
+        height: 7.92vw;
+        width: 7.92vw;
+        margin-left: -3.78vw;
+        margin-top: -3.78vw;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        color: #fff;
+        opacity: 0;
+        position: absolute;
+        z-index: 100;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: 0;
+        -webkit-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;
+        -ms-transition: all 200ms ease-in-out;
+        -o-transition: all 200ms ease-in-out;
+        transition: all 200ms ease-in-out;
+    }
+
+    .spotlight_container:hover .overviewPlay {
+        opacity: 0.7;
+        -webkit-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;
+        -ms-transition: all 200ms ease-in-out;
+        -o-transition: all 200ms ease-in-out;
+        transition: all 200ms ease-in-out;
+    }
+
+    .spotlight_container .overviewPlay:hover {
+        opacity: 1;
+    }
+
+    .spotlight_container .overviewPlay .playRing {
+        height: 7.2vw;
+        width: 7.2vw;
+        border: .36vw solid #fff;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .spotlight_container .overviewPlay .play {
+        line-height: 7.2vw;
+        width: 100%;
+        color: #fff;
+        font-size: 46%;
+        left: 6%;
+        text-align: center;
+        position: absolute;
+    }
+
+    .spotlight_container .overviewPlay:hover .play {
+        color: #ff8e00;
+    }
+
+    .spotlight_container .overviewPlay .playRing:after {
+        background: none repeat scroll 0 0 rgba(0,0,0,.2);
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+.spotlight_actor_character {
+    color: #fff;
+    font-size: 14px;
+}
+
+.spotlight_actor_name {
+    font-size: 11px;
+    color: #8c8c8c;
+}

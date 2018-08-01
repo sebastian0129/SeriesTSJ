@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApplication1.Models.Serie>
+
+@{
+    ViewBag.Title = "Series";
+    ViewBag.count = 1;
+    ViewBag.bread = new List<Tuple<string, string>>();
+    ViewBag.bread.Add(new Tuple<string, string>("Series", "Series"));
+
+
+}
+
+<div class="col-xs-12 top-space">
+    <a href="@Url.Action("Create", "Series")">
+        <i class="fa fa-3x fa-plus-circle" aria-hidden="true"></i>
+    </a>
+</div>
+<hr />
+<div class="container">
+
+    <div class="row">
+        @foreach (var item in Model) {
+            <a href="@Url.Action("Details", "Series", new { id=item.serieID})">
+                <div class="col-xs-4 col-md-3 col-lg-2 serie-item">
+                    <div class="spotlight_container">
+                        <div class="spotlight_image"
+                             style="background-image: url(http://@Html.DisplayFor(modelItem => item.image)">
+                            <img src="http://playview.io/themes/pv/images/blank-img.gif" width="300" height="445" class="img-responsive">
+                        </div>
+                        <div class="spotlight_title">
+                            @Html.DisplayFor(modelItem => item.nombre)
+
+                            <div class="info-series">
+                                @{
+                                    if (item.enEmision) {
+                                        <span class="label label-success ">En emision</span>
+                                    }
+                                    else {
+                                        <span class="label label-danger">Finalizada</span>
+                                    }
+                                }
+                            </div>
+
+                        </div>
+                        <div class="spotlight_info">
+                            <p class="panel panel-info text-center text-info">
+                             @Html.DisplayFor(modelItem => item.genero)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+                                    }
+    </div>
+
+</div>

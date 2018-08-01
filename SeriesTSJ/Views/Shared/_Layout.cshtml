@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TJS</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Sidebar")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Series TSJ
+                    </a>
+                </li>
+                <li>
+                    <a href="/Series"><i class="fa fa-fw fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="/Home/About"><i class="fa fa-fw fa-folder"></i> About </a>
+                </li>
+                <li>
+                    <a href="/Home/Contact"><i class="fa fa-fw fa-file-o"></i> Contact </a>
+                </li>
+                
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+
+            <div class="container">
+                <div class="btn-group btn-breadcrumb">
+                    <ol class="breadcrumb">
+                        @{
+                            for (var i = 0; i < ViewBag.count; i++) {
+                                if (i == ViewBag.count - 1) {
+                                    <li class="breadcrumb-item active">                                        
+                                            @ViewBag.bread[i].Item1                                        
+                                    </li>
+                                }
+                                else {
+                                    <li class="breadcrumb-item">
+                                        <a href="/@ViewBag.bread[i].Item2">
+                                            @ViewBag.bread[i].Item1
+                                        </a>
+                                    </li>
+                                }
+                                
+                            }
+                        }
+
+                    </ol>
+                </div>
+                <div class="row">
+                    @RenderBody()
+                    <hr />
+                    <footer class="col-xs-12 text-center no-background">
+                        <p>&copy; @DateTime.Now.Year Mateo - Sebastián - Jimmy </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Sidebar")
+    @Scripts.Render("~/bundles/Scripts")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.serie-item {
+    height: 300px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+    .serie-item a:active, .serie-item a:focus, .serie-item a:hover {
+        color: aquamarine;
+    }
+
+
+    .serie-item img {
+        width: 100%;
+        height: 100%;
+    }
+
+.top-space {
+    padding-top: 1em;
+}
+
+.serie-detail img {
+    width: 100%;
+}
+
+.tablaTemporadas tbody tr:hover {
+    background-color: darkslategray;
+}
+
+.clickable-row, .clickable-row td {
+    cursor: pointer;
+}
+
+.option-item {
+    padding-right: 2em;
+}
+
+.tablaTemporadas tr td a:hover {
+    color: gray;
+}

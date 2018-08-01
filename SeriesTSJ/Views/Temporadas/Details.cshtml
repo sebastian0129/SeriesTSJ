@@ -1,0 +1,109 @@
+﻿@model WebApplication1.Models.Temporada
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.count = 3;
+    ViewBag.bread = new List<Tuple<string, string>>();
+    ViewBag.bread.Add(new Tuple<string, string>("Series", "Series"));
+    ViewBag.bread.Add(new Tuple<string, string>(Model.serie.nombre, "Series/Details/" + Model.serieID));
+    ViewBag.bread.Add(new Tuple<string, string>("Temp " + Model.numero, "Temporadas/Details/" + Model.temporadaID));
+}
+
+
+
+<div class="row">
+    <div class="col-xs-6 col-md-4 col-lg-4 text-left">
+        <h2>@Model.serie.nombre</h2>
+        <h4>Temporada @Model.numero</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            @{
+                if (!Model.nombre.IsEmpty()) {
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+                }
+            }
+            <dt>
+                @Html.DisplayNameFor(model => model.enEmision)
+            </dt>
+            <dd>
+                @{if (Model.enEmision) {
+                <span class="label label-success ">En emision</span>
+                    }
+                    else {
+                <span class="label label-danger">Finalizada</span>
+                    }
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.valor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.valor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaEstreno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaEstreno)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-xs-6 col-md-6 col-lg-8 serie-detail">
+        <div class="row">
+            <a href="@Url.Action("Create", "Capitulos", new { id = Model.temporadaID})">
+                <i class="fa fa-3x fa-plus-circle" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div class="top-space">
+            <table id="tablaCapitulos" class="table tablaTemporadas">
+                <thead class="text-info">
+                    <tr>
+                        <th>Capitulo</th>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.capitulos) {
+
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.numero)</td>
+                        <td>@item.nombre</td>
+                        <td>
+                            <a href="@Url.Action("Details", "Capitulos", new { id= item.capituloID} )" class="option-item text-success">
+                                <i class="fa fa-2x fa-play-circle"></i>
+                            </a>
+
+                            <a href="@Url.Action("Edit", "Capitulos", new { id= item.capituloID} )" class="option-item text-info">
+                                <i class="fa fa-2x fa-edit"></i>
+                            </a>
+
+                            <a href="@Url.Action("Delete", "Capitulos", new { id= item.capituloID} )" class="option-item text-danger">
+                                <i class="fa fa-2x fa-close"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+
+                                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.temporadaID }) |
+    <a href="@Url.Action("Details", "Series", new { id = Model.serieID})">Back to List</a>
+</p>
